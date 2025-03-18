@@ -1,10 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+
+    // Load saved email from localStorage when the component mounts
+    useEffect(() => {
+        const savedEmail = localStorage.getItem("userEmail");
+        if (savedEmail) {
+            setEmail(savedEmail);
+        }
+    }, []);
+
+    // Save email input to localStorage whenever it changes
+    const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newEmail = e.target.value;
+        setEmail(newEmail);
+        localStorage.setItem("userEmail", newEmail);
+    };
 
     const handleMagicLink = async () => {
         setMessage("");
@@ -38,10 +53,10 @@ export default function LoginPage() {
                     type="email"
                     placeholder="you@example.com"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
                 />
                 <button
-                    className="bg-green-600 w-full py-2 rounded font-semibold hover:bg-green-500 transition"
+                    className="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black w-full font-semibold transition"
                     onClick={handleMagicLink}
                 >
                     Send Magic Link

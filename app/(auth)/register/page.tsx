@@ -41,7 +41,7 @@ export default function RegisterPage() {
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <button
-                    className="bg-green-600 w-full py-2 rounded font-semibold hover:bg-green-500 transition"
+                    className="border border-white px-4 py-2 rounded-lg hover:bg-white hover:text-black w-full font-semibold transition"
                     onClick={handleRegister}
                 >
                     Get Magic Link

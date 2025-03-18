@@ -45,11 +45,11 @@ export async function POST(req: NextRequest) {
             Source: process.env.EMAIL_FROM!,
             Destination: { ToAddresses: [user.email] },
             Message: {
-                Subject: { Data: "Your Magic Link to SportsBetterApp" },
+                Subject: { Data: "Your Magic Link to Scoop Tool Ai" },
                 Body: {
                     Html: {
                         Data: `
-              <h1>Log In to SportsBetterApp</h1>
+              <h1>Log In to Scoop Tool Ai</h1>
               <p>Click below to sign in:</p>
               <a href="${magicLink}"
                  style="padding:10px 20px; background:#16a34a; color:#fff; text-decoration:none; border-radius:5px;">
